@@ -1,0 +1,18 @@
+EcoGame/bin/
+EcoGame/obj/
+EcoGame/Logs/
+EcoGame/Packages/
+EcoGame/UserSettings/
+EcoGame/Library/
+EcoGame/Assets/AI proto/
+EcoGame/Assets/Settings/
+EcoGame/venv/
+EcoGame/results/
+EcoGame/.idea/
+
+.bin/
+obj/
+
+.idea/
+*~
+*.DotSettings.user
