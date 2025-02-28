@@ -9,6 +9,12 @@ EcoGame/Assets/Settings/
 EcoGame/venv/
 EcoGame/results/
 EcoGame/.idea/
+EcoGame/AI Proto.meta
+EcoGame/Settings.meta
+EcoGame/Text Pro.meta
+EcoGame/Text Pro/
+Temp/
+ProjectSettings/
 
 .bin/
 obj/
