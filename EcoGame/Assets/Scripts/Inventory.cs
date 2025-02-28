@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
     private Transform inventorySlotsParent; // Parent des emplacements (slots) dans l'inventaire
 
     // Taille maximale de l'inventaire
-    const int InventorySize = 15;
+    const int InventorySize = 24;
 
     private void Start()
     {

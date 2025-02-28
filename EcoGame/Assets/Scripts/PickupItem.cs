@@ -5,80 +5,35 @@ using UnityEngine;
 public class PickupItem : MonoBehaviour
 {
     [SerializeField]
-    private float pickupRange = 2.6f; // Dist max pr ramasser un obj
+    private float pickupRange = 2.6f;
 
-    public Inventory Inventory; // Réf à l'inventaire
-
-    [SerializeField]
-    private LayerMask layerMask; // Masque de détection
+    public PickupBehaviour playerPickupBehaviour;
 
     [SerializeField]
-    private GameObject toucheE; // Indicateur "E"
+    private GameObject pickupText;
 
-    private RaycastHit currentHit; // Obj détecté
-    private bool isFacingItem = false; // Face à un obj ?
+    [SerializeField]
+    private LayerMask layerMask;
 
     void Update()
     {
-        // Vérif si obj devant
-        CheckForItem();
+        RaycastHit hit;
 
-        // Si obj détecté et "E" pressé
-        if (isFacingItem && Input.GetKeyDown(KeyCode.E))
+        if(Physics.Raycast(transform.position, transform.forward, out hit, pickupRange, layerMask))
         {
-            PickupCurrentItem();
-        }
-    }
-
-    private void CheckForItem()
-    {
-        // Raycast pr détecter un obj
-        if (Physics.Raycast(transform.position, transform.forward, out currentHit, pickupRange, layerMask))
-        {
-            // Si l'obj détecté a le tag "Item"
-            if (currentHit.transform.CompareTag("Item"))
+            if(hit.transform.CompareTag("Item"))
             {
-                Debug.Log("Item détecté.");
-                toucheE.SetActive(true); // Active "E"
-                isFacingItem = true;
-                return;
-            }
-        }
+                pickupText.SetActive(true);
 
-        // Si aucun obj détecté
-        toucheE.SetActive(false);
-        isFacingItem = false;
-    }
-
-    private void PickupCurrentItem()
-    {
-        // Vérif que l'obj est valide
-        if (currentHit.transform != null)
-        {
-            Item itemComponent = currentHit.transform.GetComponent<Item>();
-
-            if (itemComponent != null)
-            {
-                Debug.Log($"Ramassé : {itemComponent.item.name}");
-
-                // Ajoute à l'inventaire
-                Inventory.AddItem(itemComponent.item);
-
-                // Détruit l'obj ds la scène
-                Destroy(currentHit.transform.gameObject);
-
-                // Désactive "E"
-                toucheE.SetActive(false);
-                isFacingItem = false;
-            }
-            else
-            {
-                Debug.LogWarning("Pas de composant Item trouvé.");
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    playerPickupBehaviour.DoPickup(hit.transform.gameObject.GetComponent<Item>());
+                }
             }
         }
         else
         {
-            Debug.LogWarning("Pas d'obj valide à ramasser.");
+            pickupText.SetActive(false);
         }
     }
 }
