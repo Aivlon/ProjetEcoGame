@@ -100,13 +100,13 @@ TextureImporter:
       name: vacuum_cleaner_no_background_0
       rect:
         serializedVersion: 2
-        x: 148
-        y: 379
-        width: 195
-        height: 65
+        x: 22
+        y: 28
+        width: 891
+        height: 865
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 35, y: 0, z: 0, w: 8}
       customData: 
       outline: []
       physicsShape: []
@@ -114,6 +114,28 @@ TextureImporter:
       bones: []
       spriteID: d1fc53ddeeeedd243b3cd325e0eda8a5
       internalID: 2515510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vacuum_cleaner_no_background_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 26
+        width: 866
+        height: 859
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccb54278744683b4b93560d6a46f0510
+      internalID: -1818240450
       vertices: []
       indices: 
       edges: []
@@ -133,6 +155,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       vacuum_cleaner_no_background_0: 2515510
+      vacuum_cleaner_no_background_1: -1818240450
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
