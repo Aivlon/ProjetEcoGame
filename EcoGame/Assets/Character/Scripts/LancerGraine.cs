@@ -6,16 +6,20 @@ public class LancerGraine : MonoBehaviour
     public GameObject grainePrefab; // Assigne le prefab ici
     public Transform pointDeLancement; // Position de départ de la graine
     public float forceLancement = 10f;
-     void Start()
-    {
-        
-    }
+    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.G)) // "G" pour lancer la graine
         {
+            Debug.Log("Bouton G pressé !");
             Lancer();
+            
         }
+
+
+
+
     }
 
     void Lancer()
