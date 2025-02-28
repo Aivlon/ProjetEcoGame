@@ -1,16 +1,37 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+
+public class LancerGraine : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject grainePrefab; // Assigne le prefab ici
+    public Transform pointDeLancement; // Position de départ de la graine
+    public float forceLancement = 10f;
+     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.G)) // "G" pour lancer la graine
+        {
+            Lancer();
+        }
+    }
+
+    void Lancer()
+    {
+        if (grainePrefab != null && pointDeLancement != null)
+        {
+            // Instancier la graine
+            GameObject graine = Instantiate(grainePrefab, pointDeLancement.position, Quaternion.identity);
+            Rigidbody rb = graine.GetComponent<Rigidbody>();
+            
+            if (rb != null)
+            {
+                // Ajouter une force pour lancer la graine
+                rb.AddForce(pointDeLancement.forward * forceLancement, ForceMode.Impulse);
+            }
+        }
     }
 }
+
